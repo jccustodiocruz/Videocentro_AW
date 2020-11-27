@@ -36,10 +36,14 @@
             </test-roots>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>Agregar</word>
+            <word>Cliente</word>
             <word>Clientes</word>
             <word>Inventario</word>
+            <word>Renta</word>
             <word>Rentas</word>
             <word>Videocentro</word>
+            <word>Videojuego</word>
             <word>Videojuegos</word>
         </spellchecker-wordlist>
     </configuration>

@@ -65,4 +65,46 @@ body{
     font-size: 30px;    
 }
 
+.main .contenido form{
+    width: 400px;
+    margin: 80px auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+input{
+    margin: 10px;
+    padding: 10px;
+    font-size: inherit;    
+    border: 2px solid black;
+}
+
+input[type="text"]{
+    width: 400px;
+    background: #ffffcc;
+}
+
+input[type="text"]:focus{    
+    background: white;    
+}
+
+input[type="submit"]{
+    width: 200px;
+}
+
+.loginForm {
+    padding-top: 50px;
+    width: 500px;
+    height: 400px;
+    margin: 60px auto;
+    text-align: center;
+    box-sizing: border-box;
+    border: 2px solid black;       
+}
+
+.login{
+    text-align: center;
+    font-size: x-large;
+    margin-top: 40px;
+}
 

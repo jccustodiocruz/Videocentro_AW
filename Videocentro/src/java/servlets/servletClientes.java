@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jc
  */
-@WebServlet(name = "servletClientes", urlPatterns = {"/"})
+@WebServlet(name = "servletClientes", urlPatterns = {"/servletClientes"})
 public class servletClientes extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
