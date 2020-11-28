@@ -10,7 +10,7 @@
 }
 
 body{
-    background: white;
+    background: white;    
 }
 
 .contenedor{
@@ -59,10 +59,10 @@ body{
 }
 
 .contenedor .main header{
-    padding: 20px;
+    padding: 20px;   
     background: #4edde7;
     text-align: center;
-    font-size: 30px;    
+    font-size: 30px;       
 }
 
 .main .contenido form{
@@ -106,5 +106,37 @@ input[type="submit"]{
     text-align: center;
     font-size: x-large;
     margin-top: 40px;
+}
+
+table,
+th,
+td {
+    padding: 5px;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+table {
+    text-align: center;
+    border-spacing: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: white;        
+    font-size: medium;
+}
+
+td,
+th {
+    width: 250px;
+    height: 30px;
+}
+
+.tabla {
+    text-align: center;
+}
+
+.tabla input[type="submit"]{
+    margin-top: 500px;
 }
 

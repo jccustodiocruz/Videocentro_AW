@@ -37,11 +37,26 @@
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
             <word>Agregar</word>
+            <word>Cantidad</word>
+            <word>Catálogo</word>
+            <word>Clasificación</word>
             <word>Cliente</word>
             <word>Clientes</word>
+            <word>Consola</word>
+            <word>Credencial</word>
+            <word>Dirección</word>
+            <word>Disponibles</word>
+            <word>Ejemplares</word>
+            <word>Fabricante</word>
+            <word>Género</word>
             <word>Inventario</word>
+            <word>Nombre</word>
+            <word>Num</word>
             <word>Renta</word>
             <word>Rentas</word>
+            <word>Teléfono</word>
+            <word>Título</word>
+            <word>Versión</word>
             <word>Videocentro</word>
             <word>Videojuego</word>
             <word>Videojuegos</word>
