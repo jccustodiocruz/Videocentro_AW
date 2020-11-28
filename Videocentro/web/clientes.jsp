@@ -1,3 +1,5 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,10 +12,10 @@
                 <h2>MENU</h2>
                 <ul>
                     <li><a href="principal.html">Home</a></li>
-                    <li><a href="clientes.html">Clientes</a></li>
-                    <li><a href="videojuegos.html">Videojuegos</a></li>
-                    <li><a href="rentas.html">Rentas</a></li>
-                    <li><a href="inventario.html">Inventario</a></li>
+                    <li><a href="clientes.jsp">Clientes</a></li>
+                    <li><a href="videojuegos.jsp">Videojuegos</a></li>
+                    <li><a href="rentas.jsp">Rentas</a></li>
+                    <li><a href="inventario.jsp">Inventario</a></li>
                 </ul>
             </div>
             <div class="main">
