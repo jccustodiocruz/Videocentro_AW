@@ -26,6 +26,10 @@
                     <file>${file.reference.videocentroPersistenciaBD.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
+                <library dirs="200">
+                    <file>${libs.jstl.classpath}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
@@ -47,9 +51,11 @@
             <word>Dirección</word>
             <word>Disponibles</word>
             <word>Ejemplares</word>
+            <word>Eliminar</word>
             <word>Fabricante</word>
             <word>Género</word>
             <word>Inventario</word>
+            <word>Modificar</word>
             <word>Nombre</word>
             <word>Num</word>
             <word>Renta</word>
