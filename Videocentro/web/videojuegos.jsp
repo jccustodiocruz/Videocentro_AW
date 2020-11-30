@@ -28,7 +28,7 @@
                 <header>Videojuegos</header>
                 <div class="contenido">
                     <div>
-                        <input type="submit" value="Agregar Videojuego">
+                        <input type="submit" value="Agregar Videojuego" onclick="window.location.href= 'formularioVideojuego.jsp'">
                     </div>
                     <div class="tabla">
                         <table>

@@ -28,7 +28,7 @@
                 <header>Clientes</header>
                 <div class="contenido">
                     <div>
-                        <input type="submit" value="Agregar Cliente">
+                        <input type="submit" value="Agregar Cliente" onclick="window.location.href = 'formularioCliente.jsp'">
                     </div>        
                     <div class="tabla">
                     <table>

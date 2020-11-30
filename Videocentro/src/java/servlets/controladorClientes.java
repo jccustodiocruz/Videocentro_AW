@@ -17,36 +17,78 @@ import persistencia.PersistenciaBD;
  */
 @WebServlet(name = "controladorClientes", urlPatterns = {"/controladorClientes"})
 public class controladorClientes extends HttpServlet {
-    
+
     private PersistenciaBD crud;
 
     @Override
     public void init() throws ServletException {
-        super.init(); 
-        
+        super.init();
+
         crud = new PersistenciaBD();
-        
+
     }
-    
-    
+
+    protected void listarClientes(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Cliente> clientes;
+
+        clientes = crud.consultarClientes();
+
+        request.setAttribute("listaClientes", clientes);
+
+        RequestDispatcher rd = request.getRequestDispatcher("clientes.jsp");
+        rd.forward(request, response);
+    }
+
+    protected void agregarCliente(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String numCredencial = request.getParameter("numCredencial");
+        String nombre = request.getParameter("nombre");
+        String direccion = request.getParameter("direccion");
+        String telefono = request.getParameter("telefono");
+
+        Cliente c = new Cliente(numCredencial, nombre, direccion, telefono);
+        
+        crud.agregar(c);
+
+        listarClientes(request, response);
+    }
+
+    protected void eliminarCliente(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+    }
+
+    protected void actualizarCliente(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        List<Cliente> clientes;         
-        
-        clientes = crud.consultarClientes();               
-        
-        request.setAttribute("listaClientes", clientes);
-        
-        RequestDispatcher rd = request.getRequestDispatcher("/clientes.jsp");
-        rd.forward(request, response);
-   }
+
+        String instruccion = request.getParameter("instruccion");
+        if (instruccion == null) {
+            instruccion = "listarClientes";
+        }
+
+        switch (instruccion) {
+            case "agregarCliente":
+                agregarCliente(request, response);
+                break;
+            case "listarClientes":
+                listarClientes(request, response);
+                break;
+            default:
+                listarClientes(request, response);
+                break;
+        }
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
+            throws ServletException, IOException {
     }
 
     @Override
