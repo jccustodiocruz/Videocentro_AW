@@ -39,14 +39,19 @@
                         <th>Teléfono</th>
                         <th></th>
                         <th></th>
-                        </thead>
+                        </thead>                        
                         <%for(Cliente c : clientes){%>
+                        
+                        <c:url var="link" value="controladorClientes">
+                            <c:param name="instruccion" value="modificarCliente"></c:param>
+                            <c:param name="numCredencial" value="<%= c.getNumCredencial()%>"></c:param>
+                        </c:url>
                         <tr>
                             <td><%= c.getNumCredencial()%></td>
                             <td><%= c.getNombre()%></td>
                             <td><%= c.getDireccion()%></td>
                             <td><%= c.getTelefono()%></td>
-                            <td>Modificar</td>
+                            <td><a href="${link}">Modificar</a></td>
                             <td>Eliminar</td>
                         </tr>
                         <%}%>

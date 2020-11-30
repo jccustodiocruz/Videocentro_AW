@@ -22,13 +22,13 @@
                 <header>Videojuego</header>
                 <div class="contenido">
                     <form>
-                        <input type="text" placeholder="Num. Catálogo" name="numCatalogo">
-                        <input type="text" placeholder="Título" name="titulo">
-                        <input type="text" placeholder="Género" name="genero">
-                        <input type="text" placeholder="Clasificación" name="clasificacion">
-                        <input type="text" placeholder="Consola" name="consola">
-                        <input type="text" placeholder="Fabricante" name="fabricante">
-                        <input type="text" placeholder="Versión" name="version">
+                        <input type="text" placeholder="Num. Catálogo" name="numCatalogo" autocomplete="off">
+                        <input type="text" placeholder="Título" name="titulo" autocomplete="off">
+                        <input type="text" placeholder="Género" name="genero" autocomplete="off">
+                        <input type="text" placeholder="Clasificación" name="clasificacion" autocomplete="off">
+                        <input type="text" placeholder="Consola" name="consola" autocomplete="off">
+                        <input type="text" placeholder="Fabricante" name="fabricante" autocomplete="off">
+                        <input type="text" placeholder="Versión" name="version" autocomplete="off">
                         <div>
                             <input type="submit" value="Guardar">
                         </div>

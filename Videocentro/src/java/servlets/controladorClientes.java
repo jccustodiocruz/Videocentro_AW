@@ -48,7 +48,7 @@ public class controladorClientes extends HttpServlet {
         String telefono = request.getParameter("telefono");
 
         Cliente c = new Cliente(numCredencial, nombre, direccion, telefono);
-        
+
         crud.agregar(c);
 
         listarClientes(request, response);
@@ -59,9 +59,31 @@ public class controladorClientes extends HttpServlet {
 
     }
 
+    protected void modificarCliente(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String numCredencial = request.getParameter("numCredencial");
+        Cliente c = new Cliente(numCredencial);
+
+        Cliente cliente = crud.obten(c);
+
+        request.setAttribute("cliente", cliente);
+
+        RequestDispatcher rd = request.getRequestDispatcher("formularioActualizarCliente.jsp");
+        rd.forward(request, response);
+    }
+
     protected void actualizarCliente(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        String numCredencial = request.getParameter("numCredencial");
+        String nombre = request.getParameter("nombre");
+        String direccion = request.getParameter("direccion");
+        String telefono = request.getParameter("telefono");
+        
+        Cliente cliente = new Cliente(numCredencial, nombre, direccion, telefono);
+        
+        crud.actualizar(cliente);
+        
+        listarClientes(request, response);
     }
 
     @Override
@@ -79,6 +101,12 @@ public class controladorClientes extends HttpServlet {
                 break;
             case "listarClientes":
                 listarClientes(request, response);
+                break;
+            case "modificarCliente":
+                modificarCliente(request, response);
+                break;
+            case "actualizarCliente":
+                actualizarCliente(request, response);
                 break;
             default:
                 listarClientes(request, response);

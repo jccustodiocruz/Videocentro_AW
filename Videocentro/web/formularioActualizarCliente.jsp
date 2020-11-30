@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cliente</title>
+        <title>Actualizar Cliente</title>
         <link rel="stylesheet" href="estilo/estilo.css" >
     </head>
     <body>     
@@ -19,16 +19,16 @@
                 </ul>
             </div>
             <div class="main">
-                <header>Cliente</header>
+                <header>Actualizar Cliente</header>
                 <div class="contenido">                    
                     <form method="get" action="controladorClientes">
-                        <input type="hidden" name="instruccion" value="agregarCliente">
-                        <input type="text" placeholder="Num. Credencial" name="numCredencial" autocomplete="off">
-                        <input type="text" placeholder="Nombre" name="nombre" autocomplete="off">
-                        <input type="text" placeholder="Dirección" name="direccion" autocomplete="off">
-                        <input type="text" placeholder="Teléfono" name="telefono" autocomplete="off">
+                        <input type="hidden" name="instruccion" value="actualizarCliente"> 
+                        <input type="hidden" name="numCredencial" value="${cliente.numCredencial}">
+                        <input type="text" name="nombre" autocomplete="off" value="${cliente.nombre}">
+                        <input type="text" name="direccion" autocomplete="off" value="${cliente.direccion}">
+                        <input type="text" name="telefono" autocomplete="off" value="${cliente.telefono}">
                         <div>
-                            <input type="submit" value="Guardar">
+                            <input type="submit" value="Actualizar">
                         </div>
                     </form>                    
                 </div>
@@ -36,3 +36,4 @@
         </div>
     </body>
 </html>
+
