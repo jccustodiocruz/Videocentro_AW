@@ -8,17 +8,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Cliente;
+import objetosNegocio.Videojuego;
 import persistencia.PersistenciaBD;
 
 /**
  *
  * @author jc
  */
-@WebServlet(name = "controladorClientes", urlPatterns = {"/controladorClientes"})
-public class controladorClientes extends HttpServlet {
+@WebServlet(name = "controladorVideojuegos", urlPatterns = {"/controladorVideojuegos"})
+public class controladorVideojuegos extends HttpServlet {
     
-    private PersistenciaBD crud;
+    PersistenciaBD crud;
 
     @Override
     public void init() throws ServletException {
@@ -27,26 +27,27 @@ public class controladorClientes extends HttpServlet {
         crud = new PersistenciaBD();
         
     }
-    
+
     
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Cliente> clientes;         
+        List<Videojuego> videojuegos;         
         
-        clientes = crud.consultarClientes();               
+        videojuegos = crud.consultarVideojuegos();
         
-        request.setAttribute("listaClientes", clientes);
+        request.setAttribute("listaVideojuegos", videojuegos);
         
-        RequestDispatcher rd = request.getRequestDispatcher("/clientes.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/videojuegos.jsp");
         rd.forward(request, response);
-   }
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
+            throws ServletException, IOException {
+        
     }
 
     @Override

@@ -1,3 +1,5 @@
+<%@page import="objetosNegocio.Videojuego"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -7,6 +9,9 @@
         <title>Videojuegos</title>
         <link rel="stylesheet" href="estilo/estilo.css"/>
     </head>
+    <%
+        List<Videojuego> videojuegos = (List<Videojuego>) request.getAttribute("listaVideojuegos");
+    %>
     <body>     
         <div class="contenedor">
             <div class="menu">
@@ -22,6 +27,9 @@
             <div class="main">
                 <header>Videojuegos</header>
                 <div class="contenido">
+                    <div>
+                        <input type="submit" value="Agregar Videojuego">
+                    </div>
                     <div class="tabla">
                         <table>
                             <thead>
@@ -34,11 +42,21 @@
                             <th>Versión</th>
                             <th></th>
                             <th></th>
-                            </thead>                        
+                            </thead>  
+                            <%for (Videojuego vj : videojuegos) {%>
+                            <tr>
+                                <td><%= vj.getNumCatalogo()%></td>
+                                <td><%= vj.getTitulo()%></td>
+                                <td><%= vj.getGenero()%></td>
+                                <td><%= vj.getClasificacion()%></td>
+                                <td><%= vj.getConsola()%></td>
+                                <td><%= vj.getFabricante()%></td>
+                                <td><%= vj.getVersion()%></td>
+                                <td>Modificar</td>
+                                <td>Eliminar</td>
+                            </tr>
+                            <%}%>
                         </table>
-                        <div>
-                            <input type="submit" value="Agregar Videojuego">
-                        </div>
                     </div>
                 </div>
             </div>

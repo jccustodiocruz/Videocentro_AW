@@ -27,6 +27,9 @@
             <div class="main">
                 <header>Clientes</header>
                 <div class="contenido">
+                    <div>
+                        <input type="submit" value="Agregar Cliente">
+                    </div>        
                     <div class="tabla">
                     <table>
                         <thead>
@@ -47,10 +50,7 @@
                             <td>Eliminar</td>
                         </tr>
                         <%}%>
-                    </table>
-                    <div>
-                        <input type="submit" value="Agregar Cliente">
-                    </div>                      
+                    </table>                                  
                    </div>                    
                 </div>
             </div>
