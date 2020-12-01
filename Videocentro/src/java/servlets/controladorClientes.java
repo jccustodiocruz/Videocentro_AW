@@ -56,7 +56,13 @@ public class controladorClientes extends HttpServlet {
 
     protected void eliminarCliente(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        String numCredencial = request.getParameter("numCredencial");
+        
+        Cliente c = new Cliente(numCredencial);
+        
+        crud.eliminar(c);
+        
+        listarClientes(request, response);
     }
 
     protected void modificarCliente(HttpServletRequest request, HttpServletResponse response)
@@ -108,6 +114,9 @@ public class controladorClientes extends HttpServlet {
             case "actualizarCliente":
                 actualizarCliente(request, response);
                 break;
+            case "eliminarCliente":
+                eliminarCliente(request, response);
+                break;                
             default:
                 listarClientes(request, response);
                 break;

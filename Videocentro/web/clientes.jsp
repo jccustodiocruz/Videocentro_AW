@@ -18,8 +18,8 @@
                 <h2>MENU</h2>
                 <ul>
                     <li><a href="principal.html">Home</a></li>
-                    <li><a href="clientes.jsp">Clientes</a></li>
-                    <li><a href="videojuegos.jsp">Videojuegos</a></li>
+                    <li><a href="controladorClientes?instruccion=listar">Clientes</a></li>
+                    <li><a href="controladorVideojuegos?instruccion=listar">Videojuegos</a></li>
                     <li><a href="rentas.jsp">Rentas</a></li>
                     <li><a href="inventario.jsp">Inventario</a></li>
                 </ul>
@@ -31,32 +31,36 @@
                         <input type="submit" value="Agregar Cliente" onclick="window.location.href = 'formularioCliente.jsp'">
                     </div>        
                     <div class="tabla">
-                    <table>
-                        <thead>
-                        <th>Num Credencial</th>
-                        <th>Nombre</th>
-                        <th>Dirección</th>
-                        <th>Teléfono</th>
-                        <th></th>
-                        <th></th>
-                        </thead>                        
-                        <%for(Cliente c : clientes){%>
-                        
-                        <c:url var="link" value="controladorClientes">
-                            <c:param name="instruccion" value="modificarCliente"></c:param>
-                            <c:param name="numCredencial" value="<%= c.getNumCredencial()%>"></c:param>
-                        </c:url>
-                        <tr>
-                            <td><%= c.getNumCredencial()%></td>
-                            <td><%= c.getNombre()%></td>
-                            <td><%= c.getDireccion()%></td>
-                            <td><%= c.getTelefono()%></td>
-                            <td><a href="${link}">Modificar</a></td>
-                            <td>Eliminar</td>
-                        </tr>
-                        <%}%>
-                    </table>                                  
-                   </div>                    
+                        <table>
+                            <thead>
+                            <th>Num Credencial</th>
+                            <th>Nombre</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
+                            <th></th>
+                            <th></th>
+                            </thead>                        
+                            <%for (Cliente c : clientes) {%>
+
+                            <c:url var="linkModificar" value="controladorClientes">
+                                <c:param name="instruccion" value="modificarCliente"></c:param>
+                                <c:param name="numCredencial" value="<%= c.getNumCredencial()%>"></c:param>
+                            </c:url>
+                            <c:url var="linkEliminar" value="controladorClientes">
+                                <c:param name="instruccion" value="eliminarCliente"></c:param>
+                                <c:param name="numCredencial" value="<%= c.getNumCredencial()%>"></c:param>
+                            </c:url>
+                            <tr>
+                                <td><%= c.getNumCredencial()%></td>
+                                <td><%= c.getNombre()%></td>
+                                <td><%= c.getDireccion()%></td>
+                                <td><%= c.getTelefono()%></td>
+                                <td><a href="${linkModificar}">Modificar</a></td>
+                                <td><a href="${linkEliminar}">Eliminar</a></td>                                
+                            </tr>
+                            <%}%>
+                        </table>                                  
+                    </div>                    
                 </div>
             </div>
         </div>

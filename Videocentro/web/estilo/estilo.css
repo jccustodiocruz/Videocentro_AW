@@ -88,6 +88,15 @@ input[type="text"]:focus{
     background: white;    
 }
 
+input[type="password"]{
+    width: 400px;
+    background: #ffffcc;
+}
+
+input[type="password"]:focus{    
+    background: white;    
+}
+
 input[type="submit"]{
     width: 200px;
     margin-top: 20px;

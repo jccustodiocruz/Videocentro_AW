@@ -18,8 +18,8 @@
                 <h2>MENU</h2>
                 <ul>
                     <li><a href="principal.html">Home</a></li>
-                    <li><a href="clientes.jsp">Clientes</a></li>
-                    <li><a href="videojuegos.jsp">Videojuegos</a></li>
+                    <li><a href="controladorClientes?instruccion=listar">Clientes</a></li>
+                    <li><a href="controladorVideojuegos?instruccion=listar">Videojuegos</a></li>
                     <li><a href="rentas.jsp">Rentas</a></li>
                     <li><a href="inventario.jsp">Inventario</a></li>
                 </ul>
@@ -28,7 +28,7 @@
                 <header>Videojuegos</header>
                 <div class="contenido">
                     <div>
-                        <input type="submit" value="Agregar Videojuego" onclick="window.location.href= 'formularioVideojuego.jsp'">
+                        <input type="submit" value="Agregar Videojuego" onclick="window.location.href = 'formularioVideojuego.jsp'">
                     </div>
                     <div class="tabla">
                         <table>
@@ -44,6 +44,14 @@
                             <th></th>
                             </thead>  
                             <%for (Videojuego vj : videojuegos) {%>
+                            <c:url var="linkModificar" value="controladorVideojuegos">
+                                <c:param name="instruccion" value="modificarVideojuego"></c:param>
+                                <c:param name="numCatalogo" value="<%= vj.getNumCatalogo()%>"></c:param>
+                            </c:url>
+                            <c:url var="linkEliminar" value="controladorVideojuegos">
+                                <c:param name="instruccion" value="eliminarVideojuego"></c:param>
+                                <c:param name="numCatalogo" value="<%= vj.getNumCatalogo()%>"></c:param>
+                            </c:url>
                             <tr>
                                 <td><%= vj.getNumCatalogo()%></td>
                                 <td><%= vj.getTitulo()%></td>
@@ -52,8 +60,8 @@
                                 <td><%= vj.getConsola()%></td>
                                 <td><%= vj.getFabricante()%></td>
                                 <td><%= vj.getVersion()%></td>
-                                <td>Modificar</td>
-                                <td>Eliminar</td>
+                                <td><a href="${linkModificar}">Modificar</a></td>
+                                <td><a href="${linkEliminar}">Eliminar</a></td>    
                             </tr>
                             <%}%>
                         </table>

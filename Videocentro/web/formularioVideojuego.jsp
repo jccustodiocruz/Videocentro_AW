@@ -12,8 +12,8 @@
                 <h2>MENU</h2>
                 <ul>
                     <li><a href="principal.html">Home</a></li>
-                    <li><a href="clientes.jsp">Clientes</a></li>
-                    <li><a href="videojuegos.jsp">Videojuegos</a></li>
+                    <li><a href="controladorClientes?instruccion=listar">Clientes</a></li>
+                    <li><a href="controladorVideojuegos?instruccion=listar">Videojuegos</a></li>
                     <li><a href="rentas.jsp">Rentas</a></li>
                     <li><a href="inventario.jsp">Inventario</a></li>
                 </ul>
@@ -21,7 +21,8 @@
             <div class="main">
                 <header>Videojuego</header>
                 <div class="contenido">
-                    <form>
+                    <form method="get" action="controladorVideojuegos">
+                        <input type="hidden" name="instruccion" value="agregarVideojuego">
                         <input type="text" placeholder="Num. Catálogo" name="numCatalogo" autocomplete="off">
                         <input type="text" placeholder="Título" name="titulo" autocomplete="off">
                         <input type="text" placeholder="Género" name="genero" autocomplete="off">
