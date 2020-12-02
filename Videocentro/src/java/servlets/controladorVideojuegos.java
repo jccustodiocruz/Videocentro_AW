@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import objetosNegocio.ArticuloED;
 import objetosNegocio.Videojuego;
 import persistencia.PersistenciaBD;
 
@@ -97,6 +98,70 @@ public class controladorVideojuegos extends HttpServlet {
         listarVideojuegos(request, response);
     }
 
+    protected void listarInventario(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<ArticuloED> inventario;
+
+        inventario = crud.consultarInventarioVideojuegos();
+
+        request.setAttribute("inventario", inventario);
+
+        RequestDispatcher rd = request.getRequestDispatcher("inventario.jsp");
+        rd.forward(request, response);
+    }
+
+    protected void inventariar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String titulo = request.getParameter("tituloVideojuego");
+        int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+        String numCatalogo = null;
+        List<Videojuego> videojuegos = crud.consultarVideojuegos();
+
+        for (Videojuego vj : videojuegos) {
+            if (vj.getTitulo().equalsIgnoreCase(titulo)) {
+                numCatalogo = vj.getNumCatalogo();
+            }
+        }
+
+        Videojuego vj = new Videojuego(numCatalogo);
+        crud.inventariar(vj, cantidad);
+
+        listarInventario(request, response);
+    }
+
+    protected void formularioInventario(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Videojuego> videojuegos;
+
+        videojuegos = crud.consultarVideojuegos();
+
+        request.setAttribute("listaVideojuegos", videojuegos);
+
+        RequestDispatcher rd = request.getRequestDispatcher("formularioInventario.jsp");
+        rd.forward(request, response);
+    }
+
+    protected void desinventariarFormulario(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String numCatalogo = request.getParameter("numCatalogo");
+
+        request.setAttribute("numCatalogo", numCatalogo);
+
+        RequestDispatcher rd = request.getRequestDispatcher("formularioDesinventariar.jsp");
+        rd.forward(request, response);
+    }
+
+    protected void desinventariar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String numCatalogo = request.getParameter("numCatalogo");
+        int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+        
+        Videojuego vj = new Videojuego(numCatalogo);
+        
+        crud.desinventariar(vj, cantidad);
+        listarInventario(request, response);
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -121,6 +186,21 @@ public class controladorVideojuegos extends HttpServlet {
                 break;
             case "eliminarVideojuego":
                 eliminarVideojuego(request, response);
+                break;
+            case "listarInventario":
+                listarInventario(request, response);
+                break;
+            case "inventariar":
+                inventariar(request, response);
+                break;
+            case "formularioInventario":
+                formularioInventario(request, response);
+                break;
+            case "desinventariar":
+                desinventariar(request, response);
+                break;
+            case "desinventariarFormulario":
+                desinventariarFormulario(request, response);
                 break;
             default:
                 listarVideojuegos(request, response);

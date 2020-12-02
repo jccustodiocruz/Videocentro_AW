@@ -21,7 +21,7 @@
                     <li><a href="controladorClientes?instruccion=listar">Clientes</a></li>
                     <li><a href="controladorVideojuegos?instruccion=listar">Videojuegos</a></li>
                     <li><a href="rentas.jsp">Rentas</a></li>
-                    <li><a href="inventario.jsp">Inventario</a></li>
+                    <li><a href="controladorVideojuegos?instruccion=listarInventario">Inventario</a></li>
                 </ul>
             </div>
             <div class="main">

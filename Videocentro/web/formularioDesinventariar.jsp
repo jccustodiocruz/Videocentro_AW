@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Actualizar Videojuego</title>
+        <title>Desinventariar</title>
         <link rel="stylesheet" href="estilo/estilo.css" >
     </head>
     <body>     
@@ -19,24 +19,20 @@
                 </ul>
             </div>
             <div class="main">
-                <header>Actualizar Videojuego</header>
+                <header>Desinventariar</header>
                 <div class="contenido">                    
                     <form method="get" action="controladorVideojuegos">
-                        <input type="hidden" name="instruccion" value="actualizarVideojuego">
-                        <input type="hidden" name="numCatalogo" value="${videojuego.numCatalogo}">
-                        <input type="text" placeholder="Título" name="titulo" autocomplete="off" value="${videojuego.titulo}">
-                        <input type="text" placeholder="Género" name="genero" autocomplete="off" value="${videojuego.genero}">
-                        <input type="text" placeholder="Clasificación" name="clasificacion" autocomplete="off" value="${videojuego.clasificacion}">
-                        <input type="text" placeholder="Consola" name="consola" autocomplete="off" value="${videojuego.consola}">
-                        <input type="text" placeholder="Fabricante" name="fabricante" autocomplete="off" value="${videojuego.fabricante}">
-                        <input type="text" placeholder="Versión" name="version" autocomplete="off" value="${videojuego.version}">
+                        <input type="hidden" name="instruccion" value="desinventariar">
+                        <input type="hidden" name="numCatalogo" value="${numCatalogo}">
+                        <input type="text" placeholder="Cantidad" name="cantidad" autocomplete="off">                        
                         <div>
                             <input type="submit" value="Actualizar">
                         </div>
-                        </form>                        
+                        </form>              
                 </div>
             </div>
         </div>
     </body>
 </html>
+
 
