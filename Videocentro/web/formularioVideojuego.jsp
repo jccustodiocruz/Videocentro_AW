@@ -12,9 +12,9 @@
                 <h2>MENU</h2>
                 <ul>
                     <li><a href="principal.html">Home</a></li>
-                    <li><a href="controladorClientes?instruccion=listar">Clientes</a></li>
-                    <li><a href="controladorVideojuegos?instruccion=listar">Videojuegos</a></li>
-                    <li><a href="rentas.jsp">Rentas</a></li>
+                    <li><a href="controladorClientes?instruccion=listarClientes">Clientes</a></li>
+                    <li><a href="controladorVideojuegos?instruccion=listarVideojuegos">Videojuegos</a></li>
+                    <li><a href="controladorRentas?instruccion=listarRentas">Rentas</a></li>
                     <li><a href="controladorVideojuegos?instruccion=listarInventario">Inventario</a></li>
                 </ul>
             </div>
@@ -26,8 +26,15 @@
                         <input type="text" placeholder="Num. Catálogo" name="numCatalogo" autocomplete="off">
                         <input type="text" placeholder="Título" name="titulo" autocomplete="off">
                         <input type="text" placeholder="Género" name="genero" autocomplete="off">
-                        <input type="text" placeholder="Clasificación" name="clasificacion" autocomplete="off">
-                        <input type="text" placeholder="Consola" name="consola" autocomplete="off">
+                        <input type="text" placeholder="Clasificación" name="clasificacion" autocomplete="off">                                                                                                
+                        <input type="text" list="videojuegos" name="Consola" placeholder="Consola"> 
+                        <datalist id="videojuegos">                           
+                            <option value="Xbox"></option>
+                            <option value="Playstation"></option>
+                            <option value="Mobile"></option>
+                            <option value="PC"></option>
+                        </datalist>
+                        
                         <input type="text" placeholder="Fabricante" name="fabricante" autocomplete="off">
                         <input type="text" placeholder="Versión" name="version" autocomplete="off">
                         <div>

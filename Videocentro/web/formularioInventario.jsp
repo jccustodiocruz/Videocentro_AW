@@ -17,9 +17,9 @@
                 <h2>MENU</h2>
                 <ul>
                     <li><a href="principal.html">Home</a></li>
-                    <li><a href="controladorClientes?instruccion=listar">Clientes</a></li>
-                    <li><a href="controladorVideojuegos?instruccion=listar">Videojuegos</a></li>
-                    <li><a href="rentas.jsp">Rentas</a></li>
+                    <li><a href="controladorClientes?instruccion=listarClientes">Clientes</a></li>
+                    <li><a href="controladorVideojuegos?instruccion=listarVideojuegos">Videojuegos</a></li>
+                    <li><a href="controladorRentas?instruccion=listarRentas">Rentas</a></li>
                     <li><a href="controladorVideojuegos?instruccion=listarInventario">Inventario</a></li>
                 </ul>
             </div>
@@ -27,9 +27,8 @@
                 <header>Inventariar</header>
                 <div class="contenido">                    
                     <form method="get" action="controladorVideojuegos">
-                        <input type="hidden" name="instruccion" value="inventariar">
-                        <label>Videojuego</label>
-                        <input type="text" list="videojuegos" name="tituloVideojuego"> 
+                        <input type="hidden" name="instruccion" value="inventariar">                        
+                        <input type="text" list="videojuegos" name="tituloVideojuego" placeholder="Videojuego"> 
                         <datalist id="videojuegos">
                             <%for (Videojuego vj : videojuegos) {%>                           
                             <option value="<%= vj.getTitulo()%>"></option>

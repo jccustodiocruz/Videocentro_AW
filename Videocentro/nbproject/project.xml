@@ -50,12 +50,14 @@
             <word>Consola</word>
             <word>Credencial</word>
             <word>Desinventariar</word>
+            <word>Devolver</word>
             <word>Dirección</word>
             <word>Disponibles</word>
             <word>Ejemplares</word>
             <word>Eliminar</word>
             <word>Existencia</word>
             <word>Fabricante</word>
+            <word>Fecha</word>
             <word>Género</word>
             <word>Inventariar</word>
             <word>Inventario</word>
@@ -65,6 +67,7 @@
             <word>Renta</word>
             <word>Rentas</word>
             <word>Teléfono</word>
+            <word>Tiempo</word>
             <word>Título</word>
             <word>Versión</word>
             <word>Videocentro</word>
