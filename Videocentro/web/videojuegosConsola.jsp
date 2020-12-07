@@ -1,7 +1,6 @@
 <%@page import="objetosNegocio.Videojuego"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +9,7 @@
         <link rel="stylesheet" href="estilo/estilo.css"/>
     </head>
     <%
-        List<Videojuego> videojuegos = (List<Videojuego>) request.getAttribute("listaVideojuegos");
+        List<Videojuego> videojuegosConsola = (List<Videojuego>) request.getAttribute("listaVideojuegos");
     %>
     <body>     
         <div class="contenedor">
@@ -26,11 +25,7 @@
             </div>
             <div class="main">
                 <header>Videojuegos</header>
-                <div class="contenido">
-                    <div>
-                        <input type="submit" value="Agregar Videojuego" onclick="window.location.href = 'formularioVideojuego.jsp'">           
-                        <input type="submit" value="Buscar por consola" onclick="window.location.href = 'seleccionarConsola.jsp'">
-                    </div>
+                <div class="contenido">                    
                     <div class="tabla">
                         <table>
                             <thead>
@@ -44,7 +39,7 @@
                             <th></th>
                             <th></th>
                             </thead>  
-                            <%for (Videojuego vj : videojuegos) {%>
+                            <%for (Videojuego vj : videojuegosConsola) {%>
                             <c:url var="linkModificar" value="controladorVideojuegos">
                                 <c:param name="instruccion" value="modificarVideojuego"></c:param>
                                 <c:param name="numCatalogo" value="<%= vj.getNumCatalogo()%>"></c:param>

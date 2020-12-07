@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import objetosNegocio.Articulo;
 import objetosNegocio.ArticuloED;
 import objetosNegocio.Videojuego;
 import persistencia.PersistenciaBD;
@@ -40,6 +41,20 @@ public class controladorVideojuegos extends HttpServlet {
         rd.forward(request, response);
     }
 
+    protected void listarVideojuegosConsola(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        List<Videojuego> videojuegos;
+        String consola = request.getParameter("consola");
+
+        videojuegos = crud.consultarVideojuegosConsola(consola);
+
+        request.setAttribute("listaVideojuegos", videojuegos);
+
+        RequestDispatcher rd = request.getRequestDispatcher("videojuegosConsola.jsp");
+        rd.forward(request, response);
+    }
+
     protected void agregarVideojuego(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String numCatalogo = request.getParameter("numCatalogo");
@@ -60,8 +75,18 @@ public class controladorVideojuegos extends HttpServlet {
     protected void eliminarVideojuego(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String numCatalogo = request.getParameter("numCatalogo");
+        int cantidad = 0;
+
+        List<ArticuloED> articulos = crud.consultarInventarioVideojuegos();
+
+        for (ArticuloED a : articulos) {
+            if (a.getArticulo().getNumCatalogo().equalsIgnoreCase(numCatalogo)) {
+                cantidad = a.getExistencia();
+            }
+        }
 
         Videojuego vj = new Videojuego(numCatalogo);
+        crud.desinventariar(vj, cantidad);
 
         crud.eliminar(vj);
 
@@ -155,9 +180,9 @@ public class controladorVideojuegos extends HttpServlet {
             throws ServletException, IOException {
         String numCatalogo = request.getParameter("numCatalogo");
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-        
+
         Videojuego vj = new Videojuego(numCatalogo);
-        
+
         crud.desinventariar(vj, cantidad);
         listarInventario(request, response);
     }
@@ -201,6 +226,9 @@ public class controladorVideojuegos extends HttpServlet {
                 break;
             case "desinventariarFormulario":
                 desinventariarFormulario(request, response);
+                break;
+            case "listarVideojuegosConsola":
+                listarVideojuegosConsola(request, response);
                 break;
             default:
                 listarVideojuegos(request, response);

@@ -26,8 +26,18 @@
                         <input type="text" placeholder="Num. Catálogo" name="numCatalogo" autocomplete="off">
                         <input type="text" placeholder="Título" name="titulo" autocomplete="off">
                         <input type="text" placeholder="Género" name="genero" autocomplete="off">
-                        <input type="text" placeholder="Clasificación" name="clasificacion" autocomplete="off">                                                                                                
-                        <input type="text" list="videojuegos" name="Consola" placeholder="Consola"> 
+                        
+                        <input type="text" list="clasificaciones" name="clasificacion" placeholder="Clasificacion"> 
+                        <datalist id="clasificaciones">                           
+                            <option value="EC"></option>
+                            <option value="E"></option>
+                            <option value="E 10+"></option>
+                            <option value="T"></option>
+                            <option value="M"></option>
+                            <option value="AO"></option>
+                        </datalist>                                                                                              
+                        
+                        <input type="text" list="videojuegos" name="consola" placeholder="Consola"> 
                         <datalist id="videojuegos">                           
                             <option value="Xbox"></option>
                             <option value="Playstation"></option>
