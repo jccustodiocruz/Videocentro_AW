@@ -25,8 +25,24 @@
                         <input type="hidden" name="instruccion" value="agregarVideojuego">
                         <input type="text" placeholder="Num. Catálogo" name="numCatalogo" autocomplete="off">
                         <input type="text" placeholder="Título" name="titulo" autocomplete="off">
-                        <input type="text" placeholder="Género" name="genero" autocomplete="off">
-                        
+
+                        <input type="text" list="generos" name="genero" placeholder="Genero"> 
+                        <datalist id="generos">                           
+                            <option value="Aventura"></option>
+                            <option value="Disparos"></option>
+                            <option value="Educativos"></option>
+                            <option value="Estrategia"></option>
+                            <option value="Lucha"></option>
+                            <option value="Horror"></option>
+                            <option value="Plataformas"></option>
+                            <option value="Rol"></option>
+                            <option value="Musicales"></option>
+                            <option value="Simulación"></option>
+                            <option value="Deportivo"></option>
+                            <option value="Carreras"></option>
+                            <option value="MOBA"></option>
+                        </datalist>         
+
                         <input type="text" list="clasificaciones" name="clasificacion" placeholder="Clasificacion"> 
                         <datalist id="clasificaciones">                           
                             <option value="EC"></option>
@@ -36,7 +52,7 @@
                             <option value="M"></option>
                             <option value="AO"></option>
                         </datalist>                                                                                              
-                        
+
                         <input type="text" list="videojuegos" name="consola" placeholder="Consola"> 
                         <datalist id="videojuegos">                           
                             <option value="Xbox"></option>
@@ -44,13 +60,13 @@
                             <option value="Mobile"></option>
                             <option value="PC"></option>
                         </datalist>
-                        
+
                         <input type="text" placeholder="Fabricante" name="fabricante" autocomplete="off">
                         <input type="text" placeholder="Versión" name="version" autocomplete="off">
                         <div>
                             <input type="submit" value="Guardar">
                         </div>
-                        </form>        
+                    </form>        
                 </div>
             </div>
         </div>

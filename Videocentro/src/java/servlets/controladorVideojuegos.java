@@ -43,11 +43,25 @@ public class controladorVideojuegos extends HttpServlet {
 
     protected void listarVideojuegosConsola(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         List<Videojuego> videojuegos;
         String consola = request.getParameter("consola");
 
         videojuegos = crud.consultarVideojuegosConsola(consola);
+
+        request.setAttribute("listaVideojuegos", videojuegos);
+
+        RequestDispatcher rd = request.getRequestDispatcher("videojuegosConsola.jsp");
+        rd.forward(request, response);
+    }
+    
+        protected void listarVideojuegosGenero(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        List<Videojuego> videojuegos;
+        String genero = request.getParameter("genero");
+
+        videojuegos = crud.consultarVideojuegosConsola(genero);
 
         request.setAttribute("listaVideojuegos", videojuegos);
 
@@ -229,6 +243,9 @@ public class controladorVideojuegos extends HttpServlet {
                 break;
             case "listarVideojuegosConsola":
                 listarVideojuegosConsola(request, response);
+                break;
+            case "listarVideojuegosGenero":
+                listarVideojuegosGenero(request, response);
                 break;
             default:
                 listarVideojuegos(request, response);

@@ -30,6 +30,7 @@
                     <div>
                         <input type="submit" value="Agregar Videojuego" onclick="window.location.href = 'formularioVideojuego.jsp'">           
                         <input type="submit" value="Buscar por consola" onclick="window.location.href = 'seleccionarConsola.jsp'">
+                        <input type="submit" value="Buscar por género" onclick="window.location.href = 'seleccionarGenero.jsp'">
                     </div>
                     <div class="tabla">
                         <table>

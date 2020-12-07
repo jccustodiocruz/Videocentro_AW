@@ -23,15 +23,15 @@
                 <div class="contenido">                    
                     <div>
                         <input type="submit" value="Buscar" onclick="window.location.href = 'controladorVideojuegos?instruccion=listarVideojuegosConsola.jsp'">
-                    </div>
-                    <div class="tabla">                        
-                            <input type="text" list="videojuegos" name="consola" placeholder="Consola"> 
-                            <datalist id="videojuegos">                           
-                                <option value="Xbox"></option>
-                                <option value="Playstation"></option>
-                                <option value="Mobile"></option>
-                                <option value="PC"></option>
-                            </datalist>                        
+                    </div>     
+                    <div class="tabla">
+                        <input type="text" list="videojuegos" name="consola" placeholder="Consola"> 
+                        <datalist id="videojuegos">                           
+                            <option value="Xbox"></option>
+                            <option value="Playstation"></option>
+                            <option value="Mobile"></option>
+                            <option value="PC"></option>
+                        </datalist>                                            
                     </div>
                 </div>
             </div>
