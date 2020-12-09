@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="estilo/estilo.css"/>
     </head>
     <%
-        List<Videojuego> videojuegosConsola = (List<Videojuego>) request.getSession().getAttribute("listaVideojuegos");
+        List<Videojuego> videojuegosGenero = (List<Videojuego>) request.getSession().getAttribute("listaVideojuegos");
     %>
     <body>     
         <div class="contenedor">
@@ -39,7 +39,7 @@
                             <th></th>
                             <th></th>
                             </thead>  
-                            <%for (Videojuego vj : videojuegosConsola) {%>
+                            <%for (Videojuego vj : videojuegosGenero) {%>
                             <c:url var="linkModificar" value="controladorVideojuegos">
                                 <c:param name="instruccion" value="modificarVideojuego"></c:param>
                                 <c:param name="numCatalogo" value="<%= vj.getNumCatalogo()%>"></c:param>

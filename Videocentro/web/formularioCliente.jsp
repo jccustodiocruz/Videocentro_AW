@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page errorPage="errorPage.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +19,7 @@
                     <li><a href="controladorVideojuegos?instruccion=listarInventario">Inventario</a></li>
                 </ul>
             </div>
-            <div class="main">
+            <div class="main">                
                 <header>Cliente</header>
                 <div class="contenido">                    
                     <form method="get" action="controladorClientes">

@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Seleccionar consola</title>
+        <title>Seleccionar genero</title>
         <link rel="stylesheet" href="estilo/estilo.css"/>
     </head>    
     <body>     
@@ -20,12 +20,24 @@
             </div>
             <div class="main">
                 <header>Seleccionar consola</header>
-                <div class="contenido">                    
+                <div class="contenido">  
+                    <script>
+                        function makeURL(){
+                            var valor = document.getElementById("valor").value;
+                            var string = "controladorVideojuegos?instruccion=listarVideojuegosGenero&genero=";
+                            var url = string + valor;
+                            window.location.href = url;
+                        }
+                        
+                        function getURL(){
+                            document.getElementById("submit").addEventListener("click", makeURL());
+                        }
+                    </script>
                     <div>
-                        <input type="submit" value="Buscar" onclick="window.location.href = 'controladorVideojuegos?instruccion=listarVideojuegosGenero.jsp'">
+                        <input type="submit" value="Buscar" id="submit" onclick="getURL()">
                     </div>
                     <div class="tabla">
-                        <input type="text" list="generos" name="genero" placeholder="Genero"> 
+                        <input type="text" list="generos" name="genero" id="valor" placeholder="Genero"> 
                         <datalist id="generos">                           
                             <option value="Aventura"></option>
                             <option value="Disparos"></option>

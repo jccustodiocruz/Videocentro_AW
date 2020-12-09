@@ -21,20 +21,32 @@
             <div class="main">
                 <header>Seleccionar consola</header>
                 <div class="contenido">                    
+                    <script>
+                        function makeURL() {
+                            var valor = document.getElementById("valor").value;
+                            var string = "controladorVideojuegos?instruccion=listarVideojuegosConsola&consola=";
+                            var url = string + valor;
+                            window.location.href = url;
+                        }
+
+                        function getURL() {
+                            document.getElementById("submit").addEventListener("click", makeURL());
+                        }
+                    </script>
                     <div>
-                        <input type="submit" value="Buscar" onclick="window.location.href = 'controladorVideojuegos?instruccion=listarVideojuegosConsola.jsp'">
+                        <input type="submit" value="Buscar" id="submit" onclick="getURL()">
                     </div>     
-                    <div class="tabla">
-                        <input type="text" list="videojuegos" name="consola" placeholder="Consola"> 
-                        <datalist id="videojuegos">                           
-                            <option value="Xbox"></option>
-                            <option value="Playstation"></option>
-                            <option value="Mobile"></option>
-                            <option value="PC"></option>
-                        </datalist>                                            
+                        <div class="tabla">
+                            <input type="text" list="videojuegos" id="valor" name="consola" placeholder="Consola"> 
+                            <datalist id="videojuegos">                           
+                                <option value="Xbox"></option>
+                                <option value="Playstation"></option>
+                                <option value="Mobile"></option>
+                                <option value="PC"></option>
+                            </datalist>                                            
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </body>
 </html>

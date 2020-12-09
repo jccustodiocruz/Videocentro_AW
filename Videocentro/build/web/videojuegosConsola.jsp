@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="estilo/estilo.css"/>
     </head>
     <%
-        List<Videojuego> videojuegosConsola = (List<Videojuego>) request.getAttribute("listaVideojuegos");
+        List<Videojuego> videojuegosConsola = (List<Videojuego>) request.getSession().getAttribute("listaVideojuegos");
     %>
     <body>     
         <div class="contenedor">
