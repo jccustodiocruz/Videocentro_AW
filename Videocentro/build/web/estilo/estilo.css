@@ -7,10 +7,13 @@
     list-style: none;
     text-decoration: none;
     font-family: 'Lato', sans-serif;   
+    align-content: center;
 }
 
 body{
-    background: white;    
+    background: #F5E3FD;     
+    text-align: center;
+
 }
 
 .contenedor{
@@ -22,7 +25,7 @@ body{
     position: fixed;
     width: 200px;
     height: 100%;
-    background: #ccffff;
+    background: #DC94FC;
     padding: 30px 0;
 }
 
@@ -41,7 +44,7 @@ body{
 }
 
 .contenedor .menu ul li:hover{     
-    background: black;
+    background: #9F36CD;
 }
 
 .contenedor .menu ul li:hover a{     
@@ -60,9 +63,11 @@ body{
 
 .contenedor .main header{
     padding: 20px;   
-    background: #4edde7;
+    background: #9F36CD;
     text-align: center;
-    font-size: 30px;       
+    font-size: 40px;     
+    color: white;
+    font-style: oblique;
 }
 
 .main .contenido form{
@@ -77,11 +82,21 @@ input{
     padding: 10px;
     font-size: inherit;    
     border: 2px solid black;
+    color: #9F36CD;
 }
 
 input[type="text"]{
-    width: 400px;
-    background: #ffffcc;
+    width: 60%;
+    margin: 5px;
+    border: none;
+    border-bottom: 3px solid;
+    border-radius: 20px;
+    background: transparent;
+    outline: none;
+    height: 45px;
+    font-size: 18px;
+    border-color: white;
+
 }
 
 input[type="text"]:focus{    
@@ -89,8 +104,16 @@ input[type="text"]:focus{
 }
 
 input[type="password"]{
-    width: 400px;
-    background: #ffffcc;
+ width: 60%;
+    margin: 5px;
+    border: none;
+    border-bottom: 3px solid;
+    border-radius: 20px;
+    background: transparent;
+    outline: none;
+    height: 45px;
+    font-size: 18px;
+    border-color: white;
 }
 
 input[type="password"]:focus{    
@@ -98,33 +121,52 @@ input[type="password"]:focus{
 }
 
 input[type="submit"]{
-    width: 200px;
-    margin-top: 20px;
-    margin-left: 20px;
+    width: 35%;
+    border: none;
+    outline: none;
+    height: 42px;
+    color: #FFFFFF;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: #9410ce;    
 }
 
 .loginForm {
-    padding-top: 50px;
-    width: 500px;
-    height: 400px;
+    padding-top: 35px;
+    width: 320px;
+    height: 360px;
     margin: 60px auto;
+    background: #DC94FC;
     text-align: center;
     box-sizing: border-box;
-    border: 2px solid black;       
+    border: 2px solid black;    
+    border-radius: 15px;
+    color: #ffffff;
+    border-color: #9410ce;
 }
 
 .login{
     text-align: center;
     font-size: x-large;
-    margin-top: 40px;
+    padding-top: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    font-style: italic;
+    font-size: 50px;    
+    background-color: #9410ce;
+
 }
 
 table,
 th,
 td {
+   width: 50%;
     padding: 5px;
     border-collapse: collapse;
-    border: 2px solid black;
+    border: 1px solid black;
+    border-color: #9F36CD;
+    background: #F5E3FD;
 }
 
 table {
@@ -143,9 +185,7 @@ th {
     height: 30px;
 }
 
-.tabla {
-    text-align: center;
-}
+
 
 .tabla input[type="submit"]{
     margin-top: 500px;
@@ -155,4 +195,3 @@ select {
     width: 200px;
     height: 50px;
 }
-

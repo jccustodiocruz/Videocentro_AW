@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import static java.lang.System.out;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -66,10 +67,10 @@ public class controladorRentas extends HttpServlet {
 
         List<Cliente> clientes;
         clientes = crud.consultarClientes();
-        
+
         request.setAttribute("listaVideojuegos", videojuegos);
         request.setAttribute("listaClientes", clientes);
-        
+
         RequestDispatcher rd = request.getRequestDispatcher("formularioRenta.jsp");
         rd.forward(request, response);
 
@@ -78,16 +79,16 @@ public class controladorRentas extends HttpServlet {
     protected void rentar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int tiempoRenta = Integer.parseInt(request.getParameter("tiempoRenta"));
-        
+
         String nombreCliente = request.getParameter("nombreCliente");
         String numCredencial = null;
         List<Cliente> clientes = crud.consultarClientes();
-        for(Cliente c : clientes){
-            if(c.getNombre().equalsIgnoreCase(nombreCliente)){
+        for (Cliente c : clientes) {
+            if (c.getNombre().equalsIgnoreCase(nombreCliente)) {
                 numCredencial = c.getNumCredencial();
             }
         }
-        
+
         String tituloVideojuego = request.getParameter("tituloVideojuego");
         String numCatalogo = null;
         List<Videojuego> videojuegos = crud.consultarVideojuegos();
@@ -96,17 +97,27 @@ public class controladorRentas extends HttpServlet {
                 numCatalogo = vj.getNumCatalogo();
             }
         }
-        
+
         Cliente c = new Cliente(numCredencial);
         Videojuego vj = new Videojuego(numCatalogo);
-        
-        Date date = new Date();int day = date.getDay();int month = date.getMonth()+1;int year = date.getYear()+1900;
+
+        Date date = new Date();
+        int day = date.getDay();
+        int month = date.getMonth() + 1;
+        int year = date.getYear() + 1900;
         Fecha fecha = new Fecha(day, month, year);
-        
+
         Renta renta = new Renta(c, vj, fecha, tiempoRenta);
-        
-        crud.rentarVideojuego(renta);
-        
+
+        try {
+            crud.rentarVideojuego(renta);
+        } catch (Exception e) {
+            String mensajeError = e.getMessage();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Videojuego sin inventario');");
+            out.println("</script>");
+        }
+
         listarRentas(request, response);
     }
 

@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import static java.lang.System.out;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,8 +55,8 @@ public class controladorVideojuegos extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("videojuegosConsola.jsp");
         rd.forward(request, response);
     }
-    
-        protected void listarVideojuegosGenero(HttpServletRequest request, HttpServletResponse response)
+
+    protected void listarVideojuegosGenero(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         List videojuegos;
@@ -81,7 +82,14 @@ public class controladorVideojuegos extends HttpServlet {
 
         Videojuego vj = new Videojuego(numCatalogo, titulo, genero, clasificacion, consola, fabricante, version);
 
-        crud.agregar(vj);
+        try {
+            crud.agregar(vj);
+        } catch (Exception e) {
+            String mensajeError = e.getMessage();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Usuario ya existe');");
+            out.println("</script>");
+        }
 
         listarVideojuegos(request, response);
     }
@@ -100,9 +108,16 @@ public class controladorVideojuegos extends HttpServlet {
         }
 
         Videojuego vj = new Videojuego(numCatalogo);
-        crud.desinventariar(vj, cantidad);
 
-        crud.eliminar(vj);
+        try {
+            crud.desinventariar(vj, cantidad);
+            crud.eliminar(vj);
+        } catch (Exception e) {
+            String mensajeError = e.getMessage();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Videojuego en Renta');");
+            out.println("</script>");
+        }
 
         listarVideojuegos(request, response);
     }
@@ -197,7 +212,15 @@ public class controladorVideojuegos extends HttpServlet {
 
         Videojuego vj = new Videojuego(numCatalogo);
 
-        crud.desinventariar(vj, cantidad);
+        try {
+            crud.desinventariar(vj, cantidad);
+        } catch (Exception e) {
+            String mensajeError = e.getMessage();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Cliente ya existe');");
+            out.println("</script>");
+        }        
+
         listarInventario(request, response);
     }
 

@@ -17,7 +17,7 @@
             <div class="menu">
                 <h2>MENU</h2>
                 <ul>
-                    <li><a href="principal.html">Home</a></li>
+                    <li><a href="principal.html">Inicio</a></li>
                     <li><a href="controladorClientes?instruccion=listarClientes">Clientes</a></li>
                     <li><a href="controladorVideojuegos?instruccion=listarVideojuegos">Videojuegos</a></li>
                     <li><a href="controladorRentas?instruccion=listarRentas">Rentas</a></li>
@@ -26,12 +26,7 @@
             </div>
             <div class="main">
                 <header>Videojuegos</header>
-                <div class="contenido">
-                    <div>
-                        <input type="submit" value="Agregar Videojuego" onclick="window.location.href = 'formularioVideojuego.jsp'">           
-                        <input type="submit" value="Buscar por consola" onclick="window.location.href = 'seleccionarConsola.jsp'">
-                        <input type="submit" value="Buscar por género" onclick="window.location.href = 'seleccionarGenero.jsp'">
-                    </div>
+                <div class="contenido">                    
                     <div class="tabla">
                         <table>
                             <thead>
@@ -67,6 +62,11 @@
                             </tr>
                             <%}%>
                         </table>
+                    </div>
+                        <div>
+                        <input type="submit" value="Agregar Videojuego" onclick="window.location.href = 'formularioVideojuego.jsp'">           
+                        <input type="submit" value="Buscar por consola" onclick="window.location.href = 'seleccionarConsola.jsp'">
+                        <input type="submit" value="Buscar por género" onclick="window.location.href = 'seleccionarGenero.jsp'">
                     </div>
                 </div>
             </div>

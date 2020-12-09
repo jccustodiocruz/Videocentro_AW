@@ -26,10 +26,7 @@
             </div>
             <div class="main">
                 <header>Rentas</header>
-                <div class="contenido">
-                    <div>
-                        <input type="submit" value="Rentar" onclick="window.location.href = 'controladorRentas?instruccion=formularioRenta'">                                                
-                    </div>        
+                <div class="contenido">                     
                     <div class="tabla">
                         <table>
                             <thead>
@@ -55,6 +52,9 @@
                             <%}%>
                         </table>        
                     </div>
+                    <div>
+                        <input type="submit" value="Rentar" onclick="window.location.href = 'controladorRentas?instruccion=formularioRenta'">                                                
+                    </div>       
                 </div>
             </div>
     </body>

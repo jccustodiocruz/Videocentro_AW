@@ -22,20 +22,17 @@
                 <header>Seleccionar consola</header>
                 <div class="contenido">  
                     <script>
-                        function makeURL(){
+                        function makeURL() {
                             var valor = document.getElementById("valor").value;
                             var string = "controladorVideojuegos?instruccion=listarVideojuegosGenero&genero=";
                             var url = string + valor;
                             window.location.href = url;
                         }
-                        
-                        function getURL(){
+
+                        function getURL() {
                             document.getElementById("submit").addEventListener("click", makeURL());
                         }
-                    </script>
-                    <div>
-                        <input type="submit" value="Buscar" id="submit" onclick="getURL()">
-                    </div>
+                    </script>                    
                     <div class="tabla">
                         <input type="text" list="generos" name="genero" id="valor" placeholder="Genero"> 
                         <datalist id="generos">                           
@@ -53,6 +50,9 @@
                             <option value="Carreras"></option>
                             <option value="MOBA"></option>
                         </datalist>                                         
+                    </div>
+                    <div>
+                        <input type="submit" value="Buscar" id="submit" onclick="getURL()">
                     </div>
                 </div>
             </div>

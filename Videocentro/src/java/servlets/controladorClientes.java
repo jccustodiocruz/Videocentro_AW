@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import static java.lang.System.out;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -49,7 +50,14 @@ public class controladorClientes extends HttpServlet {
 
         Cliente c = new Cliente(numCredencial, nombre, direccion, telefono);
 
-        crud.agregar(c);
+        try {
+            crud.agregar(c);
+        } catch (Exception e) {
+            String mensajeError = e.getMessage();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Inventario insuficiente');");
+            out.println("</script>");
+        }
 
         listarClientes(request, response);
     }
@@ -57,11 +65,11 @@ public class controladorClientes extends HttpServlet {
     protected void eliminarCliente(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String numCredencial = request.getParameter("numCredencial");
-        
+
         Cliente c = new Cliente(numCredencial);
-        
+
         crud.eliminar(c);
-        
+
         listarClientes(request, response);
     }
 
@@ -84,11 +92,11 @@ public class controladorClientes extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String direccion = request.getParameter("direccion");
         String telefono = request.getParameter("telefono");
-        
+
         Cliente cliente = new Cliente(numCredencial, nombre, direccion, telefono);
-        
+
         crud.actualizar(cliente);
-        
+
         listarClientes(request, response);
     }
 
@@ -116,7 +124,7 @@ public class controladorClientes extends HttpServlet {
                 break;
             case "eliminarCliente":
                 eliminarCliente(request, response);
-                break;                
+                break;
             default:
                 listarClientes(request, response);
                 break;

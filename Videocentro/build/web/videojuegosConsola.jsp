@@ -16,7 +16,7 @@
             <div class="menu">
                 <h2>MENU</h2>
                 <ul>
-                    <li><a href="principal.html">Home</a></li>
+                    <li><a href="principal.html">Inicio</a></li>
                     <li><a href="controladorClientes?instruccion=listarClientes">Clientes</a></li>
                     <li><a href="controladorVideojuegos?instruccion=listarVideojuegos">Videojuegos</a></li>
                     <li><a href="controladorRentas?instruccion=listarRentas">Rentas</a></li>
